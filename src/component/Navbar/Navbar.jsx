@@ -30,7 +30,6 @@ const Navbar = () => {
 
   return (
     <Box width="100%" fontFamily="sans-serif">
-      {/* --- TOP DARK BLUE BAR (Hidden on Mobile) --- */}
       <Box display={{ base: "none", lg: "block" }} bg="#001529" color="#dad9d9" py={3} px={10}>
         <Flex justify="space-between" align="center" fontSize="sm">
           <HStack spacing={9} ml={8} fontSize={"13px"}>
@@ -145,7 +144,6 @@ const Navbar = () => {
               
               <Divider borderColor="whiteAlpha.300" />
               
-              {/* --- NEW SECTION: Portal Links (Students, Staff etc.) --- */}
               <Text fontSize="xs" fontWeight="bold" color="gray.400" textTransform="uppercase" letterSpacing="wider">
                 University Portals
               </Text>

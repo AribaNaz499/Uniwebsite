@@ -77,7 +77,6 @@ const sliderImages = [Card1, Card2, Card3, Card4, Card5];
             <Box key={index} px="1px">
               <Box
                 position="relative"
-                // 2. Height ko moderate rakha hai (Na bohot lamba, na bohot chota)
                 height={{ base: "250px", md: "380px" }}
                 width="100%"
                 overflow="hidden"
@@ -102,7 +101,7 @@ const sliderImages = [Card1, Card2, Card3, Card4, Card5];
                   <Text color="white" fontWeight="700" mb={5} fontSize={{ base: "md", md: "lg" }} fontFamily="serif">
                     Student Name {index + 1}
                   </Text>
-                  <Text color="white" fontSize="11px"  opacity="0.8">
+                  <Text color="white" fontSize={{md:"11px", base:"8px"}} lineHeight={{base:"1"}}  opacity="0.8">
                     Class of 2026
                   </Text>
                 </Box>

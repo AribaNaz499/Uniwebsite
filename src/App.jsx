@@ -7,8 +7,12 @@ import './App.css'
 import Academics from './component/Academics/Academics'
 import WhyChooseMwu from './component/WhyChooseMWU/WhyChooseMwu'
 import CampusLife from "./component/CampusLife/CampusLife"
-import Storues from './component/StudentStories/Stories'
+import Stories from './component/StudentStories/Stories'
 import LatestNews from './component/LatestNews/LatestNews'
+import Events from './component/Events/Events'
+import Apply from './component/Apply/Apply'
+import President from "./component/President/President"
+import Faq from "./component/FAQ/Faq"
 function App() {
 
   return (
@@ -19,8 +23,12 @@ function App() {
       <Academics/>
       <WhyChooseMwu/>
       <CampusLife/>
-      <Storues/>
-      {/* <LatestNews/> */}
+      <Stories/>
+      <Events/>
+      <Apply/>
+      <President/>
+      <Faq/>
+      <LatestNews/>
       <Footer/>
     </>
   )

@@ -35,19 +35,17 @@ const Footer = () => {
             bgPosition="center"
             bgRepeat="no-repeat"
             color="white"
-            // Mobile pe height auto rakhi hai taake content niche overlap na ho
-            minH={{ base: "auto", md: "95vh" }}
+            minH="auto" 
         >
             <Box 
-                minH={{ base: "auto", md: "95vh" }} 
+                minH="auto" 
                 bg="rgba(10,20,40,0.85)" 
-                pb={5} 
                 w="100%" 
-                py={{ base: 10, md: 16 }} 
+                pt={{ base: 10, md: 16 }} 
+                pb={{ base: 6, md: 8 }} 
                 px={{ base: 6, md: 16 }}
             >
                 <Grid
-                    // Desktop pe wahi columns hain (2fr 1fr 1fr 1fr), Mobile pe 1fr
                     templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", md: "2fr 1fr 1fr 1fr" }}
                     gap={{ base: 12, md: 10 }}
                     position="relative"
@@ -78,37 +76,18 @@ const Footer = () => {
                         </VStack>
                     </VStack>
 
-                    {/* LINE 1 - Only visible on Desktop */}
-                    <Box
-                        display={{ base: "none", md: "block" }}
-                        position="absolute"
-                        left="32%"
-                        top="33%"
-                        transform="translateY(-50%)"
-                        height="38%"
-                        width="1px"
-                        bg="rgba(255, 255, 255, 0.15)"
-                    />
+                    {/* Vertical Lines (Desktop Only) */}
+                    <Box display={{ base: "none", lg: "block" }} position="absolute" left="32%" top="20%" height="40%" width="1px" bg="rgba(255, 255, 255, 0.15)" />
+                    <Box display={{ base: "none", lg: "block" }} position="absolute" left="54%" top="20%" height="40%" width="1px" bg="rgba(255, 255, 255, 0.15)" />
+                    <Box display={{ base: "none", lg: "block" }} position="absolute" left="77%" top="20%" height="40%" width="1px" bg="rgba(255, 255, 255, 0.15)" />
 
                     {/* SECTION 2 */}
                     <VStack align="start" spacing={3}>
                         <Heading size="sm">Useful Links</Heading>
                         {["Home", "About MWU", "Academic Programs", "Campuses", "Students", "Alumni", "Research", "News & Blog", "Contact Us"].map((item) => (
-                            <Text color="#cac7c7" key={item} fontSize="sm">› {item}</Text>
+                            <Text color="#cac7c7" key={item} fontSize="sm" _hover={{color: "white", cursor: "pointer"}}>› {item}</Text>
                         ))}
                     </VStack>
-
-                    {/* LINE 2 - Only visible on Desktop */}
-                    <Box
-                        display={{ base: "none", md: "block" }}
-                        position="absolute"
-                        left="54%"
-                        top="33%"
-                        transform="translateY(-50%)"
-                        height="38%"
-                        width="1px"
-                        bg="rgba(255, 255, 255, 0.15)"
-                    />
 
                     {/* SECTION 3 */}
                     <VStack align="start" spacing={3}>
@@ -122,21 +101,9 @@ const Footer = () => {
                             "MBA",
                             "PhD in Public Health",
                         ].map((item) => (
-                            <Text color="#cac7c7" key={item} fontSize="sm">› {item}</Text>
+                            <Text color="#cac7c7" key={item} fontSize="sm" _hover={{color: "white", cursor: "pointer"}}>› {item}</Text>
                         ))}
                     </VStack>
-
-                    {/* LINE 3 - Only visible on Desktop */}
-                    <Box
-                        display={{ base: "none", md: "block" }}
-                        position="absolute"
-                        left="77%"
-                        top="33%"
-                        transform="translateY(-50%)"
-                        height="38%"
-                        width="1px"
-                        bg="rgba(255, 255, 255, 0.15)"
-                    />
 
                     {/* SECTION 4 */}
                     <VStack align="start" spacing={3}>
@@ -157,38 +124,30 @@ const Footer = () => {
                 </Grid>
 
                 {/* BOTTOM SECTION */}
-                <Box py={7} borderTop="1px solid rgba(255,255,255,0.2)" mt={{ base: 12, md: 24 }} pt={6}>
+                <Box py={6} borderTop="1px solid rgba(255,255,255,0.2)" mt={{ base: 10, md: 16 }}>
                     <Grid
-                        px={2}
-                        mt={13}
-                        // Mobile pe ye stack ho jayega (ek ke niche ek)
                         templateColumns={{ base: "1fr", md: "1fr auto" }}
                         alignItems="center"
-                        gap={{ base: 6, md: 0 }}
+                        gap={{ base: 4, md: 0 }}
                     >
                         <Text 
                             color="#cac7c7" 
                             fontSize="sm" 
-                            pb={2} 
                             textAlign={{ base: "center", md: "left" }}
                         >
                             © Copyright 2026{" "}
-                            <Text as="span" color="#0e4979" fontWeight="bold">
+                            <Text as="span" color="#3182ce" fontWeight="bold">
                                 Madda Walabu University
                             </Text>
                             . All Rights Reserved.
                         </Text>
 
-                        <HStack spacing={3} mt={{ base: 4, md: 0 }} justify={{ base: "center", md: "flex-end" }}>
-                            <Box border="1px solid white" p={2} cursor="pointer" _hover={{ bg: "whiteAlpha.200" }}>
-                                <FaFacebookF />
-                            </Box>
-                            <Box border="1px solid white" p={2} cursor="pointer" _hover={{ bg: "whiteAlpha.200" }}>
-                                <FaGlobe />
-                            </Box>
-                            <Box border="1px solid white" p={2} cursor="pointer" _hover={{ bg: "whiteAlpha.200" }}>
-                                <FaLinkedinIn />
-                            </Box>
+                        <HStack spacing={3} justify={{ base: "center", md: "flex-end" }}>
+                            {[FaFacebookF, FaGlobe, FaLinkedinIn].map((IconComp, idx) => (
+                                <Box key={idx} border="1px solid white" p={2} cursor="pointer" _hover={{ bg: "white", color: "#1a4d95" }} transition="0.3s">
+                                    <Icon as={IconComp} />
+                                </Box>
+                            ))}
                         </HStack>
                     </Grid>
                 </Box>

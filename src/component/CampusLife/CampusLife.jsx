@@ -46,9 +46,9 @@ const CampusLife = () => {
         {/* --- HEADER SECTION --- */}
         <Flex
           justify={{md:"space-between", base:"center"}}
-          align={{ base: "center", md: "flex-end" }} // Mobile par start, desktop par end
+          align={{ base: "center", md: "flex-end" }} 
           mb={{ base: 8, md: 12 }}
-          direction={{ base: "column", md: "row" }} // Mobile par stack
+          direction={{ base: "column", md: "row" }}
           gap={6}
         >
           <VStack align="start" spacing={3} maxW="600px">
@@ -76,7 +76,7 @@ const CampusLife = () => {
             _hover={{ bg: "#1a4d95", color: "white", borderColor: "#1a4d95" }}
             px={8}
             textAlign={{base:"left"}}
-            w={{ base: "auto", md: "auto" }} // Mobile par full width button
+            w={{ base: "auto", md: "auto" }}
           >
             Explore All
           </Button>

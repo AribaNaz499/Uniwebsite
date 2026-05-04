@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'; // useRef aur useState zaroori hain
+import React, { useRef, useState } from 'react';
 import {
   Box,
   Text,
@@ -10,9 +10,8 @@ import {
   Flex,
   Icon,
 } from "@chakra-ui/react";
-import { BsArrowRight, BsPlayFill, BsPauseFill } from "react-icons/bs";
-// Video file path (Ensure path is correct)
-import GraduationVid from "../../assets/Images/WhyChoose/video.mp4"; 
+import { BsArrowRight, BsPlayFill } from "react-icons/bs";
+import GraduationVid from "../../assets/Images/WhyChoose/video.mp4";
 
 const features = [
   {
@@ -38,7 +37,6 @@ const features = [
 ];
 
 const WhyChooseMwu = () => {
-  // Video control karne ke liye hooks
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -57,7 +55,7 @@ const WhyChooseMwu = () => {
   return (
     <Box width="100%" bg="#FFF9F9" overflow="hidden">
       <Flex direction={{ base: "column", lg: "row" }} align="stretch">
-        
+
         {/* --- LEFT CONTENT SECTION --- */}
         <Box flex="1.2" py={{ base: 12, md: 24 }} px={{ base: 6, md: 16, xl: 24 }}>
           <VStack align="start" spacing={6} maxW="700px">
@@ -68,7 +66,7 @@ const WhyChooseMwu = () => {
               </Text>
             </HStack>
 
-            <Heading fontSize={{ base: "2xl", md: "4xl" }} color="#001529" fontWeight="650"  lineHeight="1.1" fontFamily="serif">
+            <Heading fontSize={{ base: "2xl", md: "4xl" }} color="#001529" fontWeight="650" lineHeight="1.1" fontFamily="serif">
               We help every student to <br /> stand out from the rest
             </Heading>
 
@@ -107,54 +105,56 @@ const WhyChooseMwu = () => {
           </VStack>
         </Box>
 
-        {/* --- RIGHT VIDEO SECTION (FIXED) --- */}
-        <Box 
-          flex="0.8" 
-          position="relative" 
-          minH={{ base: "350px", lg: "500px" }}
+        {/* --- RIGHT VIDEO SECTION --- */}
+        <Box
+          flex="0.8"
+          position="relative"
+          minH={{ base: "300px", lg: "500px" }}
           bg="black"
+          display="flex"
         >
-          {/* HTML5 video tag use kiya hai Chakra ke Video ki jagah */}
           <video
             ref={videoRef}
             src={GraduationVid}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             playsInline
             loop
           />
 
-          {/* Video Play/Pause Overlay */}
-          <Box 
-            position="absolute"
-            top="50%"
-            left="50%"
-            transform="translate(-50%, -50%)"
-            w="80px"
-            h="80px"
-            bg="white"
-            borderRadius="full"
-            display={isPlaying ? "none" : "flex"} // Video chalne par button hide ho jaye
-            alignItems="center"
-            justifyContent="center"
-            cursor="pointer"
-            boxShadow="xl"
-            zIndex="10"
-            onClick={handleToggleVideo}
-            transition="transform 0.3s"
-            _hover={{ transform: "translate(-50%, -50%) scale(1.1)" }}
-          >
-            <Icon as={BsPlayFill} boxSize={12} color="#1a4d95" ml={1} />
-          </Box>
+          {/* FIX: Play button with Icon inside */}
+          {!isPlaying && (
+            <Box
+              position="absolute"
+              top="50%"
+              left="50%"
+              transform="translate(-50%, -50%)"
+              w={{ base: "60px", md: "80px" }}
+              h={{ base: "60px", md: "80px" }}
+              bg="white"
+              borderRadius="full"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              cursor="pointer"
+              boxShadow="xl"
+              zIndex="10"
+              onClick={handleToggleVideo}
+              transition="transform 0.3s"
+              _hover={{ transform: "translate(-50%, -50%) scale(1.1)" }}
+            >
+              <Icon as={BsPlayFill} boxSize={{ base: 8, md: 12 }} color="#1a4d95" ml={1} />
+            </Box>
+          )}
 
-          {/* Pause functionality agar video par click karein */}
+          {/* Pause click area */}
           {isPlaying && (
-             <Box 
-               position="absolute" 
-               inset="0" 
-               onClick={handleToggleVideo} 
-               cursor="pointer"
-               zIndex="5"
-             />
+            <Box
+              position="absolute"
+              inset="0"
+              onClick={handleToggleVideo}
+              cursor="pointer"
+              zIndex="5"
+            />
           )}
         </Box>
 

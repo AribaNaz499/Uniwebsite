@@ -17,7 +17,6 @@ import { BsArrowRight } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { HiChatAlt2, HiClock } from "react-icons/hi"; // Bottom icons ke liye
 
-// Image paths
 import CropImg from "../../assets/Images/Academics/card1.jpg"; 
 import DiseaseImg from "../../assets/Images/Academics/card2.jpg"; 
 import TourismImg from "../../assets/Images/Academics/tourism.jpg"; 

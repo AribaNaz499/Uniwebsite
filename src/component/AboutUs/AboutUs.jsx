@@ -34,13 +34,13 @@ const AboutUs = () => {
                         height={{ base: "auto", md: "550px" }}
                     >
                         <Box
-                            position={{ base: "relative", md: "absolute" }} // Mobile par relative (normal flow)
+                            position={{ base: "relative", md: "absolute" }}
                             left="0"
                             bottom="0"
-                            width={{ base: "100%", md: "70%" }} // Mobile par full width
-                            height={{ base: "300px", md: "90%" }} // Mobile par fix height
+                            width={{ base: "100%", md: "70%" }} 
+                            height={{ base: "300px", md: "90%" }} 
                             zIndex="2"
-                            mb={{ base: 4, md: 0 }} // Mobile par niche wali image se gap
+                            mb={{ base: 4, md: 0 }} 
                         >
                             <Image
                                 src={PersonImg}
@@ -54,10 +54,10 @@ const AboutUs = () => {
 
                         {/* 2. Side Images Stack */}
                         <VStack
-                            position={{ base: "relative", md: "absolute" }} // Mobile par relative
+                            position={{ base: "relative", md: "absolute" }} 
                             right="0"
                             top={{ md: "14", base: "0" }}
-                            width={{ base: "100%", md: "40%" }} // Mobile par full width
+                            width={{ base: "100%", md: "40%" }} 
                             spacing={{ base: "4", md: "3" }}
                             zIndex="3"
                         >
@@ -65,7 +65,7 @@ const AboutUs = () => {
                                 src={GraduationImg}
                                 alt="Graduation"
                                 objectFit="cover"
-                                height={{ base: "200px", md: "175px" }} // Mobile par thodi badi height
+                                height={{ base: "200px", md: "175px" }} 
                                 width="100%"
                                 boxShadow="xl"
                             />
@@ -73,13 +73,12 @@ const AboutUs = () => {
                                 src={FieldImg}
                                 alt="Field Work"
                                 objectFit="cover"
-                                height={{ base: "200px", md: "262px" }} // Mobile par thodi badi height
+                                height={{ base: "200px", md: "262px" }} 
                                 width="100%"
                                 boxShadow="xl"
                             />
                         </VStack>
 
-                        {/* Dotted Pattern - Mobile par hide hi behtar hai */}
                         <Box
                             position="absolute"
                             left="-20px"
@@ -87,7 +86,6 @@ const AboutUs = () => {
                             zIndex="1"
                             display={{ base: "none", md: "block" }}
                         >
-                            {/* Pattern Image here */}
                         </Box>
                     </Box>
 
