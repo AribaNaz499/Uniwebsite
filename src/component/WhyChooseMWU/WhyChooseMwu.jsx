@@ -109,19 +109,25 @@ const WhyChooseMwu = () => {
         <Box
           flex="0.8"
           position="relative"
-          minH={{ base: "300px", lg: "500px" }}
-          bg="black"
-          display="flex"
+          h={{ base: "280px", lg: "auto" }}
+          minH={{ lg: "500px" }}
+          overflow="hidden"
+          bg="#FFF9F9"
+          sx={{ fontSize: 0, lineHeight: 0 }}
         >
           <video
             ref={videoRef}
             src={GraduationVid}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
             playsInline
             loop
           />
 
-          {/* FIX: Play button with Icon inside */}
           {!isPlaying && (
             <Box
               position="absolute"
@@ -146,7 +152,6 @@ const WhyChooseMwu = () => {
             </Box>
           )}
 
-          {/* Pause click area */}
           {isPlaying && (
             <Box
               position="absolute"
