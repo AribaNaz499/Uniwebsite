@@ -98,7 +98,7 @@ const sliderImages = [Card1, Card2, Card3, Card4, Card5];
                   p={{ base: 4, md: 6 }}
                   bgGradient="linear(to-t, rgba(0,0,0,0.8), transparent)"
                 >
-                  <Text color="white" fontWeight="700" mb={5} fontSize={{ base: "md", md: "lg" }} fontFamily="serif">
+                  <Text color="white" fontWeight="700" mb={5} fontSize={{ base: "sm", md: "lg" }} fontFamily="serif">
                     Student Name {index + 1}
                   </Text>
                   <Text color="white" fontSize={{md:"11px", base:"8px"}} lineHeight={{base:"1"}}  opacity="0.8">
