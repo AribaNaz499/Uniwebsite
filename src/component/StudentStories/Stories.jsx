@@ -12,7 +12,7 @@ import Card4 from "../../assets/Images/Stories/card4.jpg"
 import Card5 from "../../assets/Images/Stories/card5.jpg"
 
 const Stories = () => {
-const sliderImages = [Card1, Card2, Card3, Card4, Card5];
+  const sliderImages = [Card1, Card2, Card3, Card4, Card5];
 
   const settings = {
     dots: false,
@@ -81,30 +81,46 @@ const sliderImages = [Card1, Card2, Card3, Card4, Card5];
                 width="100%"
                 overflow="hidden"
               >
-                <Image 
-                  src={img} 
+                <Image
+                  src={img}
                   display="block"
-                  w="100%" 
-                  h="100%" 
-                  objectFit="cover" 
+                  w="100%"
+                  h="100%"
+                  objectFit="cover"
                   filter="brightness(0.9)"
                 />
 
-                <Box
+                {/* FIX: VStack use kiya, har Text apni line par, padding aur font size properly set */}
+                <VStack
                   position="absolute"
                   bottom="0"
                   left="0"
                   w="100%"
-                  p={{ base: 4, md: 6 }}
-                  bgGradient="linear(to-t, rgba(0,0,0,0.8), transparent)"
+                  px={{ base: 3, md: 6 }}
+                  py={{ base: 3, md: 5 }}
+                  align="start"
+                  spacing={1}
+                  bgGradient="linear(to-t, rgba(0,0,0,0.85) 60%, transparent)"
                 >
-                  <Text color="white" fontWeight="700" mb={5} fontSize={{ base: "sm", md: "lg" }} fontFamily="serif">
+                  <Text
+                    color="white"
+                    fontWeight="700"
+                    fontSize={{ base: "12px", md: "lg" }}
+                    fontFamily="serif"
+                    lineHeight="1.3"
+                    noOfLines={1}
+                  >
                     Student Name {index + 1}
                   </Text>
-                  <Text color="white" fontSize={{md:"11px", base:"8px"}} lineHeight={{base:"1"}}  opacity="0.8">
+                  <Text
+                    color="white"
+                    fontSize={{ base: "10px", md: "11px" }}
+                    lineHeight="1.3"
+                    opacity="0.8"
+                  >
                     Class of 2026
                   </Text>
-                </Box>
+                </VStack>
               </Box>
             </Box>
           ))}
