@@ -14,13 +14,15 @@ import {
   Divider
 } from "@chakra-ui/react";
 import { BsArrowRight } from "react-icons/bs";
-import { AiFillStar } from "react-icons/ai";
-import { HiChatAlt2, HiClock, HiOutlineChat, HiXCircle } from "react-icons/hi"; // Bottom icons ke liye
+import { HiOutlineChat, HiXCircle } from "react-icons/hi";
+
+// Correct path to the newly created Latest News CSS
+import "../../CSS/latestNews.css";
 
 // Image paths
-import CropImg from "../../assets/Images/Academics/card1.jpg";
-import DiseaseImg from "../../assets/Images/Academics/card2.jpg";
-import TourismImg from "../../assets/Images/Academics/tourism.jpg";
+import CropImg from "../../assets/Images/LatestNews/card1.jpg";
+import DiseaseImg from "../../assets/Images/LatestNews/card2.jpg";
+import TourismImg from "../../assets/Images/LatestNews/tourism.jpg";
 
 const programsData = [
   {
@@ -58,11 +60,23 @@ const programsData = [
   },
 ];
 
-
 const LatestNews = () => {
   return (
-    <Box width="100%" py={{ base: 10, md: 20 }} bg="white">
-      <Container maxW="1050px" px={{ base: 4, md: 6 }}>
+    <Box width="100%" py={{ base: 10, md: 20, "2xl": 28 }} bg="white">
+      {/* Container limits ko adjust kiya hai:
+        Standard screens par 1050px, wide screens par scale hokar 1600px+ 
+        aur 2556px+ ultra-wide displays ke liye 1900px set kiya hai.
+      */}
+      <Container 
+        maxW={{ base: "1050px", "2xl": "1600px" }} 
+        px={{ base: 4, md: 6 }}
+        className="custom-latestnews-container-wide"
+        sx={{
+          "@media screen and (min-width: 2400px)": {
+            maxW: "1900px"
+          }
+        }}
+      >
 
         {/* --- HEADER SECTION --- */}
         <Flex
@@ -72,7 +86,7 @@ const LatestNews = () => {
           direction={{ base: "column", md: "row" }}
           gap={4}
         >
-          <VStack align="start" spacing={2} maxW="600px">
+          <VStack align="start" spacing={2} maxW="800px">
             <HStack spacing={3}>
               <Box w="25px" h="1.5px" bg="#1a4d95" />
               <Text textTransform="uppercase" fontSize="13px" fontWeight="700" color="#1a4d95" letterSpacing="widest">
@@ -80,7 +94,7 @@ const LatestNews = () => {
               </Text>
             </HStack>
 
-            <Heading fontSize={{ base: "xl", md: "3xl" }} color="#001529" fontWeight="700" lineHeight="1.2" fontFamily="serif">
+            <Heading fontSize={{ base: "xl", md: "3xl", "2xl": "4xl" }} color="#001529" fontWeight="700" lineHeight="1.2" fontFamily="serif">
               MWU Research, Innovation and Community Impact
             </Heading>
           </VStack>
@@ -119,10 +133,25 @@ const LatestNews = () => {
               transition="all 0.3s"
               display="flex"
               flexDirection="column"
-              minH="480px"
+              minH={{ base: "480px", "2xl": "580px" }}
               _hover={{ transform: "translateY(-5px)", boxShadow: "xl" }}
             >
-              <Box position="relative" width="100%" height="220px">
+              {/* Ultra-wide screens par ratio maintain rakhne ke liye heights ko 
+                media queries ke zariye adjust kiya hai taaki cropping na ho.
+              */}
+              <Box 
+                position="relative" 
+                width="100%" 
+                height="220px"
+                sx={{
+                  "@media screen and (min-width: 2000px)": {
+                    height: "300px"
+                  },
+                  "@media screen and (min-width: 2500px)": {
+                    height: "380px"
+                  }
+                }}
+              >
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -169,12 +198,12 @@ const LatestNews = () => {
 
               <VStack align="start" spacing={0} p={6} flex="1">
                 <Flex w="100%" justify="space-between" align="center" pt={2}>
-
                   <HStack spacing={1.5}>
                     <Icon as={HiXCircle} boxSize={4} color="#1b4075" />
                     <Text fontSize="12px" fontWeight="600" color="gray.600">{item.uni}</Text>
                   </HStack>
                 </Flex>
+                
                 <Flex w="100%" justify="space-between" align="center" pt={2}>
                   <HStack spacing={4} mt={-2}>
                     <HStack spacing={1.5}>
@@ -183,21 +212,33 @@ const LatestNews = () => {
                     </HStack>
                   </HStack>
                 </Flex>
-                <Text fontWeight="600" mt={2} fontSize="19px" color="#001529" lineHeight="1.3" noOfLines={3}>
+
+                <Text 
+                  fontWeight="600" 
+                  mt={2} 
+                  fontSize={{ base: "19px", "2xl": "22px" }} 
+                  color="#001529" 
+                  lineHeight="1.3" 
+                  noOfLines={3}
+                >
                   {item.title}
                 </Text>
 
-                <Text fontSize="14px" mt={2} color="gray.600" lineHeight="1.7" noOfLines={4}>
+                <Text 
+                  fontSize={{ base: "14px", "2xl": "16px" }} 
+                  mt={2} 
+                  color="gray.600" 
+                  lineHeight="1.7" 
+                  noOfLines={4}
+                >
                   {item.description}
                 </Text>
 
                 <Box flex="1" />
 
-                <Divider borderColor="gray.100" />
+                <Divider borderColor="gray.100" my={3} />
 
                 <Flex w="100%" justify="space-between" align="center" pt={2}>
-                
-
                   <Button
                     variant="link" 
                     size="sm"

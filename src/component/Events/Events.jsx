@@ -1,14 +1,19 @@
 import React from 'react'
 import {
     Box, Text, Heading, VStack, HStack, Image, Button, 
-    Container, Flex, Icon, Divider, SimpleGrid,
-    background
+    Container, Flex, Icon, Divider, SimpleGrid
 } from "@chakra-ui/react";
 import { BsArrowRight, BsCalendar3, BsClock } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
+
+// Image Imports
 import card1 from "../../assets/Images/Events/card1.jpg"
 import card2 from "../../assets/Images/Events/card2.jpg"
 import card3 from "../../assets/Images/Events/card3.jpg"
+
+// Connecting the wide-screen CSS
+import "../../CSS/events.css";
+
 const eventsData = [
     {
         id: 1,
@@ -48,8 +53,15 @@ const eventsData = [
 
 const Events = () => {
     return (
-        <Box width="100%" py={{ base: 10, md: 20 }} bg="white" >
-            <Container maxW="1100px">
+        <Box width="100%" py={{ base: 10, md: 20 }} bg="white" overflow="hidden">
+            {/* UNTOUCHED CONTAINER: 
+                Aapka original maxW="1100px" bilkul lock hai. 
+                Standard desktop aur baqi layouts ke liye yeh 100% safe hai.
+            */}
+            <Container 
+                maxW="1100px"
+                className="custom-events-container-wide"
+            >
                 {/* Header Section */}
                 <Flex justify="space-between" align="flex-end" mb={5}>
                     <VStack align="start" spacing={1}>
@@ -79,8 +91,28 @@ const Events = () => {
                                 direction={{ base: "column", md: item.reverse ? "row-reverse" : "row" }} 
                                 gap={10} py={10} align="center"
                             >
-                                <Box position="relative" flex="1">
-                                    <Image src={item.image} borderRadius="2px" w="100%" h="280px" objectFit="cover" />
+                                {/* FIXED FOR ULTRA-WIDE ONLY:
+                                    1. Base, tablet, aur standard desktop layouts ke liye default "h=280px" strictly untouched hai.
+                                    2. Media Query strictly 2000px+ (ultra-wide) par images ki height ko barha kar 380px karti hai taaki grid stretch hone par height proportional rahe aur image cut na ho.
+                                */}
+                                <Box 
+                                    position="relative" 
+                                    flex="1"
+                                    width="100%"
+                                    height="280px"
+                                    sx={{
+                                        "@media screen and (min-width: 2000px)": {
+                                            height: "380px"
+                                        }
+                                    }}
+                                >
+                                    <Image 
+                                        src={item.image} 
+                                        borderRadius="2px" 
+                                        w="100%" 
+                                        h="100%" 
+                                        objectFit="cover" 
+                                    />
                                     <VStack 
                                         position="absolute" top={4} right={4} spacing={0} 
                                         bg="#1a4d95" color="white" minW="50px" borderRadius="2px"
@@ -120,6 +152,7 @@ const Events = () => {
                                     <Button 
                                         variant="outline" size="sm" fontSize="11px" fontWeight="bold" px={6}
                                         rightIcon={<Icon as={BsArrowRight} />} borderRadius="0"
+                                        _hover={{ bg: "#1a4d95", color: "white", borderColor: "#1a4d95" }}
                                     >
                                         Details
                                     </Button>

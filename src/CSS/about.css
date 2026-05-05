@@ -1,0 +1,34 @@
+/* ==========================================================================
+   ABOUT US SECTION - STRETCH FIX FOR ULTRA WIDE (1920px & 2560px+)
+   ========================================================================== */
+
+/* Standard Baseline */
+.custom-about-container {
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* --- 1920px Screens --- */
+@media screen and (min-width: 1920px) {
+  .custom-about-container {
+    max-width: 1400px !important;
+  }
+}
+
+/* --- 2560px Ultra-Wide Screens --- */
+@media screen and (min-width: 2400px) {
+  .custom-about-container {
+    max-width: 1750px !important; /* Perfect match with News and Count */
+  }
+
+  /* Grid spacing on 2K displays */
+  .custom-about-grid {
+    gap: 100px !important; 
+  }
+
+  /* Image gallery container scales bigger */
+  .about-gallery-wrapper {
+    height: 680px !important; /* Scaled up height from 550px to match text */
+  }
+}

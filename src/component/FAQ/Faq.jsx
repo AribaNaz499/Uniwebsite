@@ -18,6 +18,9 @@ import PersonImg from "../../assets/Images/Faq/personImg.jpg";
 import Card2 from "../../assets/Images/Faq/card2.jpg";
 import Card3 from "../../assets/Images/Faq/card3.jpg";
 
+// Connecting the wide-screen CSS
+import "../../CSS/faq.css";
+
 const faqData = [
     {
         id: "01",
@@ -110,13 +113,28 @@ const Faq = () => {
                 ))}
             </Box>
 
-            <Container maxW="container.xl" px={{ base: 4, md: 16 }} position="relative" zIndex="1">
-                <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 16, lg: 20 }} alignItems="start">
+            {/* container.xl limit ko target kiya aur maxW ko 2400px+ screens ke liye barha diya */}
+            <Container 
+                maxW={{ base: "container.xl", "2xl": "1600px" }} 
+                px={{ base: 4, md: 16 }} 
+                position="relative" 
+                zIndex="1"
+                className="custom-faq-container-wide"
+                sx={{
+                    "@media screen and (min-width: 2400px)": {
+                        maxW: "2000px"
+                    }
+                }}
+            >
+                <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 16, lg: 20 }} alignItems="center">
 
                     {/* --- LEFT SIDE: IMAGE GALLERY --- */}
                     <Box width="100%" position="relative">
                         <HStack spacing={4} align="center">
                             <VStack spacing={4} width="55%">
+                                {/* Ultra-wide screens (2500px+) par aspect ratios ko barqarar rakhne ke liye 
+                                  heights ko dynamic dynamic calculations (vh / pixels) mein adjust kiya hai.
+                                */}
                                 <Image
                                     src={PersonImg}
                                     alt="President"
@@ -124,6 +142,14 @@ const Faq = () => {
                                     height="320px"
                                     width="100%"
                                     boxShadow="xl"
+                                    sx={{
+                                        "@media screen and (min-width: 2000px)": {
+                                            height: "440px"
+                                        },
+                                        "@media screen and (min-width: 2500px)": {
+                                            height: "550px"
+                                        }
+                                    }}
                                 />
                                 <Image
                                     src={Card2}
@@ -132,6 +158,14 @@ const Faq = () => {
                                     height="280px"
                                     width="100%"
                                     boxShadow="xl"
+                                    sx={{
+                                        "@media screen and (min-width: 2000px)": {
+                                            height: "390px"
+                                        },
+                                        "@media screen and (min-width: 2500px)": {
+                                            height: "480px"
+                                        }
+                                    }}
                                 />
                             </VStack>
 
@@ -144,6 +178,14 @@ const Faq = () => {
                                     height="280px"
                                     width="100%"
                                     boxShadow="xl"
+                                    sx={{
+                                        "@media screen and (min-width: 2000px)": {
+                                            height: "390px"
+                                        },
+                                        "@media screen and (min-width: 2500px)": {
+                                            height: "480px"
+                                        }
+                                    }}
                                 />
                             </Box>
                         </HStack>
@@ -174,7 +216,7 @@ const Faq = () => {
                         </HStack>
 
                         <Heading
-                            fontSize={{ base: "2xl", md: "4xl" }}
+                            fontSize={{ base: "2xl", md: "4xl", "2xl": "5xl" }}
                             color="#001529"
                             lineHeight="1.1"
                             fontFamily="serif"
@@ -184,11 +226,11 @@ const Faq = () => {
                         </Heading>
 
                         <Text
-                            fontSize={{ base: "xs", md: "sm" }}
+                            fontSize={{ base: "xs", md: "sm", "2xl": "md" }}
                             color="#676e7b"
                             lineHeight="1.6"
                             fontWeight="400"
-                            maxW="400px"
+                            maxW="600px"
                             fontFamily="sans-serif"
                         >
                             Explore key facts about Madda Walabu University, including campuses,
@@ -220,7 +262,7 @@ const Faq = () => {
                                             _hover={{ bg: isOpen ? "#06162c" : "gray.50" }}
                                         >
                                             <Text
-                                                fontSize={{ base: "13px", md: "14px" }}
+                                                fontSize={{ base: "13px", md: "14px", "2xl": "16px" }}
                                                 fontWeight="600"
                                                 lineHeight="1.4"
                                                 pr={4}
@@ -243,7 +285,7 @@ const Faq = () => {
                                                 pb={5}
                                             >
                                                 <Text
-                                                    fontSize={{ base: "11px", md: "12px" }}
+                                                    fontSize={{ base: "11px", md: "12px", "2xl": "14px" }}
                                                     color="gray.300"
                                                     lineHeight="1.7"
                                                     fontWeight="350"

@@ -5,11 +5,16 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+// Image imports
 import Card1 from "../../assets/Images/Stories/card1.jpg"
 import Card2 from "../../assets/Images/Stories/card2.jpg"
 import Card3 from "../../assets/Images/Stories/card3.jpg"
 import Card4 from "../../assets/Images/Stories/card4.jpg"
 import Card5 from "../../assets/Images/Stories/card5.jpg"
+
+// Connecting the wide-screen CSS
+import "../../CSS/stories.css";
 
 const Stories = () => {
   const sliderImages = [Card1, Card2, Card3, Card4, Card5];
@@ -35,7 +40,16 @@ const Stories = () => {
   return (
     <Box width="100%" pt={{ base: 8, md: 10 }} pb={0} bg="white" overflowX="hidden">
 
-      <Container maxW="1050px" px={{ base: 4, md: 6 }} mb={10}>
+      {/* UNTOUCHED CONTAINER: 
+          Aapka original maxW="1050px" bilkul lock hai. 
+          Is se normal desktop (1050px) par margin/padding bilkul pehle jaisi hi rahegi.
+      */}
+      <Container 
+        maxW="1050px" 
+        px={{ base: 4, md: 6 }} 
+        mb={10}
+        className="custom-stories-header-wide"
+      >
         <Flex
           justify="space-between"
           align={{ base: "center", md: "flex-end" }}
@@ -63,7 +77,7 @@ const Stories = () => {
             borderColor="gray.300"
             rightIcon={<Icon as={BsArrowRight} />}
             px={8}
-            _hover={{ bg: "#1a4d95", color: "white" }}
+            _hover={{ bg: "#1a4d95", color: "white", borderColor: "#1a4d95" }}
           >
             Explore All
           </Button>
@@ -75,11 +89,22 @@ const Stories = () => {
         <Slider {...settings}>
           {sliderImages.map((img, index) => (
             <Box key={index} px="1px">
+              
+              {/* FIXED CONTAINER FOR ULTRA-WIDE ONLY:
+                  1. Normal layouts ke liye strictly "250px" aur "380px" locked hai (Untouched!).
+                  2. Media Query sirf 2000px+ (ultra-wide) par height badhati hai aur check karti hai 
+                     ke image natural contain rahe aur kate nahi.
+              */}
               <Box
                 position="relative"
                 height={{ base: "250px", md: "380px" }}
                 width="100%"
                 overflow="hidden"
+                sx={{
+                  "@media screen and (min-width: 2000px)": {
+                    height: "550px" // Ultra-wide screens ke liye ideal aspect ratio height
+                  }
+                }}
               >
                 <Image
                   src={img}
@@ -88,9 +113,14 @@ const Stories = () => {
                   h="100%"
                   objectFit="cover"
                   filter="brightness(0.9)"
+                  sx={{
+                    "@media screen and (min-width: 2000px)": {
+                      objectPosition: "center 20%" // Ultra-wide par main focus/faces ko cut hone se bachata hai
+                    }
+                  }}
                 />
 
-                {/* FIX: VStack use kiya, har Text apni line par, padding aur font size properly set */}
+                {/* Overlay Text Inside Slider */}
                 <VStack
                   position="absolute"
                   bottom="0"
@@ -101,6 +131,12 @@ const Stories = () => {
                   align="start"
                   spacing={1}
                   bgGradient="linear(to-t, rgba(0,0,0,0.85) 60%, transparent)"
+                  sx={{
+                    "@media screen and (min-width: 2000px)": {
+                      py: 8,
+                      px: 8
+                    }
+                  }}
                 >
                   <Text
                     color="white"
@@ -109,6 +145,11 @@ const Stories = () => {
                     fontFamily="serif"
                     lineHeight="1.3"
                     noOfLines={1}
+                    sx={{
+                      "@media screen and (min-width: 2000px)": {
+                        fontSize: "22px"
+                      }
+                    }}
                   >
                     Student Name {index + 1}
                   </Text>
@@ -117,6 +158,11 @@ const Stories = () => {
                     fontSize={{ base: "10px", md: "11px" }}
                     lineHeight="1.3"
                     opacity="0.8"
+                    sx={{
+                      "@media screen and (min-width: 2000px)": {
+                        fontSize: "14px"
+                      }
+                    }}
                   >
                     Class of 2026
                   </Text>

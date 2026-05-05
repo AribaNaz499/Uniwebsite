@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Flex, Text, SimpleGrid, Icon, Link, Container } from '@chakra-ui/react';
 import { FaMapMarkerAlt, FaFlask, FaHandshake, FaBookOpen } from 'react-icons/fa';
 import { BsArrowRight } from 'react-icons/bs';
+import "../../CSS/card.css";
 
 const cardData = [
   { title: "Multi-Campus Learning", icon: FaMapMarkerAlt, bgColor: "#FFF5F5", description: "Experience student-centered education across Robe Main Campus, Goba Campus, and Shashemene Campus in Ethiopia." },
@@ -12,10 +13,16 @@ const cardData = [
 
 const CardSection = () => {
   return (
-    <Container maxW="container.xl" px={4}>
+    <Container 
+      maxW="container.xl" 
+      px={4}
+      mt={8}
+      className="custom-high-res-container"
+    >
       <SimpleGrid 
         columns={{ base: 1, md: 2, lg: 4 }} 
-        spacing={{ base: 6, lg: 4 }} 
+        spacing={{ base: 6, lg: 4 }}
+        className="custom-high-res-grid" 
       >
         {cardData.map((card, index) => (
           <Flex
@@ -27,6 +34,7 @@ const CardSection = () => {
             minH="320px"
             transition="0.3s"
             boxShadow="xl" 
+            className="check"
             _hover={{ transform: "translateY(-5px)", boxShadow: "2xl" }}
           >
             <Icon as={card.icon} w={8} h={8} mb={6} color="black" />

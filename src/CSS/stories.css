@@ -1,0 +1,26 @@
+/* ==========================================================================
+   STUDENT STORIES SECTION - ULTRA WIDE RESOLUTIONS ONLY (1920px & 2560px+)
+   Standard Desktop (1024px to 1500px) remains completely untouched!
+   ========================================================================== */
+
+/* --- 1920px Width Screens --- */
+@media screen and (min-width: 1920px) {
+  .custom-stories-header-wide {
+    max-width: 1400px !important; 
+    width: 100% !important;
+    margin: 0 auto 40px auto !important; /* Perfect center align aur bottom margin setup */
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+}
+
+/* --- 2560px Ultra-Wide Screens (Matches your 2560x2114px view) --- */
+@media screen and (min-width: 2400px) {
+  .custom-stories-header-wide {
+    max-width: 1750px !important; 
+    width: 100% !important;
+    margin: 0 auto 50px auto !important; /* Locks layout to center at 2560px width */
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+}

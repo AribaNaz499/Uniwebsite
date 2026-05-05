@@ -4,7 +4,12 @@ import {
 } from "@chakra-ui/react";
 import { HiOutlineCheckCircle } from "react-icons/hi";
 import { BsArrowRight } from "react-icons/bs";
+
+// Image Path
 import Card1 from "../../assets/Images/Apply/card1.jpg";
+
+// Connecting the wide-screen CSS
+import "../../CSS/apply.css";
 
 const Apply = () => {
   const admissionLinks = [
@@ -30,7 +35,17 @@ const Apply = () => {
         zIndex="1"
       />
 
-      <Container maxW="1200px" px={{ base: 6, md: 10, lg: 20 }} position="relative" zIndex="2">
+      {/* UNTOUCHED CONTAINER: 
+          Aapka original maxW="1200px" bilkul locked hai.
+          Is se normal screens par spaces aur content structure pehle jaisa hi rahega.
+      */}
+      <Container 
+        maxW="1200px" 
+        px={{ base: 6, md: 10, lg: 20 }} 
+        position="relative" 
+        zIndex="2"
+        className="custom-apply-container-wide"
+      >
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 10, lg: 12 }} alignItems="center">
 
           {/* LEFT CONTENT */}
@@ -41,7 +56,6 @@ const Apply = () => {
                 APPLY TO MWU
               </Text>
             </HStack>
-
 
             <Heading 
               fontSize={{ base: "28px", md: "42px" }} 
@@ -85,7 +99,11 @@ const Apply = () => {
           </VStack>
 
           {/* RIGHT IMAGE */}
-          <Box>
+          <Box width="100%">
+             {/* FIXED FOR ULTRA-WIDE ONLY:
+                 1. Normal screens par standard height base="auto" aur md="420px" strictly untouched hain.
+                 2. Media Query strictly 2000px+ screens par image height ko barha kar 530px karti hai taaki grid layout me aspect-ratio perfect rahe aur image sides ya upar se cut na ho.
+             */}
              <Image
                 src={Card1}
                 alt="University Presentation"
@@ -93,6 +111,11 @@ const Apply = () => {
                 h={{ base: "auto", md: "420px" }} 
                 objectFit="cover"
                 boxShadow="0 20px 40px rgba(0,0,0,0.4)"
+                sx={{
+                  "@media screen and (min-width: 2000px)": {
+                    height: "530px"
+                  }
+                }}
               />
           </Box>
 

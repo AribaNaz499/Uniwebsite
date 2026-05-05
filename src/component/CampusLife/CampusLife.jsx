@@ -20,6 +20,9 @@ import CropImg from "../../assets/Images/CampusLife/card1.jpg";
 import DiseaseImg from "../../assets/Images/CampusLife/card2.jpg"; 
 import TourismImg from "../../assets/Images/CampusLife/card3.jpg"; 
 
+// Connecting the wide-screen CSS
+import "../../CSS/campusLife.css";
+
 const programsData = [
   {
     image: CropImg,
@@ -40,8 +43,16 @@ const programsData = [
 
 const CampusLife = () => {
   return (
-    <Box width="100%" py={{ base: 12, md: 24 }} bg="white">
-      <Container maxW="1050px" px={{ base: 4, md: 8 }}>
+    <Box width="100%" py={{ base: 12, md: 24 }} bg="white" overflow="hidden">
+      {/* UNTOUCHED CONTAINER: 
+          Aapka original maxW="1050px" locked hai. 
+          Standard desktop aur baqi layouts ke liye yeh 100% safe hai.
+      */}
+      <Container 
+        maxW="1050px" 
+        px={{ base: 4, md: 8 }}
+        className="custom-campus-container-wide"
+      >
         
         {/* --- HEADER SECTION --- */}
         <Flex
@@ -83,7 +94,11 @@ const CampusLife = () => {
         </Flex>
 
         {/* --- CARDS GRID --- */}
-        <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={{ base: 6, md: 8, lg: 10 }}>
+        <SimpleGrid 
+          columns={{ base: 1, sm: 2, lg: 3 }} 
+          spacing={{ base: 6, md: 8, lg: 10 }}
+          className="custom-campus-grid-wide"
+        >
           {programsData.map((item, index) => (
             <Box
               key={index}
@@ -93,8 +108,19 @@ const CampusLife = () => {
               transition="transform 0.3s, box-shadow 0.3s"
               _hover={{ transform: "translateY(-5px)", boxShadow: "xl" }}
             >
-              {/* Image Section */}
-              <Box overflow="hidden" height={{ base: "220px", md: "200px" }}>
+              {/* FIXED FOR ULTRA-WIDE (2556px) ONLY: 
+                  1. Normal heights base="220px" aur md="200px" strictly locked hain (Untouched!).
+                  2. Media Query strictly 2000px+ (ultra-wide) screens par wrapper box ki height ko barha kar 280px karegi.
+              */}
+              <Box 
+                overflow="hidden" 
+                height={{ base: "220px", md: "200px" }}
+                sx={{
+                  "@media screen and (min-width: 2000px)": {
+                    height: "280px"
+                  }
+                }}
+              >
                 <Image
                   src={item.image}
                   alt={item.title}

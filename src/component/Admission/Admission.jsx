@@ -4,18 +4,22 @@ import {
 } from "@chakra-ui/react";
 import { BsArrowRight } from "react-icons/bs";
 import { LuBookOpen } from "react-icons/lu";
-import Background from "../../assets/Images/Admission/background.jpg"
+import Background from "../../assets/Images/Admission/background.webp"
+
+// Connecting the wide-screen CSS
+import "../../CSS/admission.css";
 
 const AdmissionSection = () => {
     return (
         <Box width="100%" bg="white" overflow="hidden">
+            {/* --- TOP HEADER BAR --- */}
             <Box width="100%" borderBottom="1px solid" borderColor="gray.100" py={{ base: 4, md: 3 }}>
-                <Container maxW="1500px">
+                {/* Standard desktop maxW 1500px is strictly preserved */}
+                <Container maxW="1500px" className="custom-admission-top-wide">
                     <SimpleGrid 
                         columns={{ base: 1, md: 3 }} 
-                       spacing={{ base: 4, md: 10 }}
+                        spacing={{ base: 4, md: 10 }}
                         justifyItems={{ base: "flex-start", md: "center" }}
-                
                     >
                         {[ "HEALTH SCIENCE", "TOURISM & HERITAGE", "BIODIVERSITY" ].map((item) => (
                             <HStack key={item} spacing={3} mb={10}>
@@ -54,7 +58,13 @@ const AdmissionSection = () => {
                     bg="blackAlpha.500" 
                 />
 
-                <Container maxW="1230px" position="relative" py={{ base: 8, md: 20 }}>
+                {/* Standard desktop maxW 1230px is strictly preserved */}
+                <Container 
+                    maxW="1230px" 
+                    position="relative" 
+                    py={{ base: 8, md: 20 }}
+                    className="custom-admission-hero-wide"
+                >
                     <Box
                         bg="white"
                         p={{ base: 6, sm: 8, md: 12 }}

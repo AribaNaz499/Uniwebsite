@@ -11,19 +11,28 @@ import {
     Icon,
 } from "@chakra-ui/react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaGlobe, FaEnvelope, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
-import UniLogo from "../../assets/Images/Logo/uniLogo.png"
+import UniLogo from "../../assets/Images/Footer/logo-white.png"
+import Insta1 from "../../assets/Images/Insta/insta-1.png";
+import Insta2 from "../../assets/Images/Insta/insta-2.png";
+import Insta3 from "../../assets/Images/Insta/insta-3.png";
+import Insta4 from "../../assets/Images/Insta/insta-4.png";
+import Insta5 from "../../assets/Images/Insta/insta-5.png";
+import Insta6 from "../../assets/Images/Insta/insta-6.png";
+import Insta7 from "../../assets/Images/Insta/insta-7.png";
+import Insta8 from "../../assets/Images/Insta/insta-8.png";
+import Insta9 from "../../assets/Images/Insta/insta-9.png";
 
 const Footer = () => {
     const instagramImages = [
-        { src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=100&h=100&fit=crop", alt: "1" },
-        { src: "https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=100&h=100&fit=crop", alt: "2" },
-        { src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=100&h=100&fit=crop", alt: "3" },
-        { src: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=100&h=100&fit=crop", alt: "4" },
-        { src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=100&h=100&fit=crop", alt: "5" },
-        { src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=100&h=100&fit=crop", alt: "6" },
-        { src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop", alt: "7" },
-        { src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=100&h=100&fit=crop", alt: "8" },
-        { src: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=100&h=100&fit=crop", alt: "9" }
+        { src: Insta1, alt: "1" },
+        { src: Insta2, alt: "2" },
+        { src: Insta3, alt: "3" },
+        { src: Insta4, alt: "4" },
+        { src: Insta5, alt: "5" },
+                { src: Insta6, alt: "6" },
+        { src: Insta7, alt: "7" },
+        { src: Insta8, alt: "8" },
+        { src: Insta9, alt: "9" }
     ];
 
     return (
@@ -55,14 +64,12 @@ const Footer = () => {
                         <HStack spacing={3}>
                             <Image
                                 ml={-4}
+
                                 src={UniLogo}
                                 boxSize="80px"
                                 mr={-3}
+                                width={"105%"}
                             />
-                            <Box>
-                                <Text fontWeight="bold">Madda Walabu University</Text>
-                                <Text fontSize="sm">Excellence through Diversity!</Text>
-                            </Box>
                         </HStack>
                         <Text fontSize="sm" maxW="300px">
                             Excellence through Diversity, MWU advances quality education,

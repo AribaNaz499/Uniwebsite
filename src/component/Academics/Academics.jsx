@@ -15,11 +15,15 @@ import {
 } from "@chakra-ui/react";
 import { BsArrowRight } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
-import { HiChatAlt2, HiClock } from "react-icons/hi"; // Bottom icons ke liye
+import { HiChatAlt2, HiClock } from "react-icons/hi"; 
 
+// Image paths
 import CropImg from "../../assets/Images/Academics/card1.jpg"; 
 import DiseaseImg from "../../assets/Images/Academics/card2.jpg"; 
 import TourismImg from "../../assets/Images/Academics/tourism.jpg"; 
+
+// Connecting the wide-screen CSS
+import "../../CSS/academics.css"; 
 
 const programsData = [
   {
@@ -53,8 +57,17 @@ const programsData = [
 
 const Academics = () => {
   return (
-    <Box width="100%" py={{ base: 10, md: 20 }} bg="white">
-      <Container maxW="1100px" px={{ base: 4, md: 6 }}>
+    <Box width="100%" py={{ base: 10, md: 20 }} bg="white" overflow="hidden">
+      
+      {/* FIXED CONTAINER:
+        Normal screens par maxW hamesha "1100px" hi rahega jaisa aapka original tha.
+        Sirf "2xl" (1536px+) aur ultra-wide (2556px) par humne isko wide kiya hai taaki content natural lage.
+      */}
+      <Container 
+        maxW={{ base: "1100px", "2xl": "1400px" }} 
+        px={{ base: 4, md: 6 }} 
+        className="custom-academics-container-wide"
+      >
         
         {/* --- HEADER SECTION --- */}
         <Flex
@@ -94,7 +107,11 @@ const Academics = () => {
         </Flex>
 
         {/* --- CARDS GRID --- */}
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+        <SimpleGrid 
+          columns={{ base: 1, md: 3 }} 
+          spacing={8} 
+          className="custom-academics-grid-wide"
+        >
           {programsData.map((item, index) => (
             <Box
               key={index}
@@ -106,8 +123,15 @@ const Academics = () => {
               boxShadow="0 2px 15px rgba(0,0,0,0.03)"
               transition="all 0.3s"
             >
-              {/* Image with Category Badge */}
-              <Box position="relative" width="100%" height="190px">
+              {/* FIXED IMAGE CONTAINER:
+                Normal screens, tablets aur mobile par height hamesha exactly "190px" hi rahegi jaisa aapka original design tha.
+                Sirf ultra-wide / 2556px screens par hum height ko responsive banayenge "240px" ya "260px" taaki images upar se cut na hon.
+              */}
+              <Box 
+                position="relative" 
+                width="100%" 
+                height={{ base: "190px", "2xl": "250px" }}
+              >
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -149,9 +173,9 @@ const Academics = () => {
 
                 <Divider borderColor="gray.100" pt={2} />
 
-                {/* --- SLEEK CARD FOOTER (image_008993 jaisa) --- */}
+                {/* --- SLEEK CARD FOOTER --- */}
                 <Flex w="100%" justify="space-between" align="center" pt={1}>
-                  <HStack spacing={4} color="slate.600">
+                  <HStack spacing={4}>
                     <HStack spacing={1.5}>
                       <Icon as={HiChatAlt2} boxSize={4} color="#1a4d95" />
                       <Text fontSize="11px" fontWeight="600" color="#2D3748">{item.meta1}</Text>

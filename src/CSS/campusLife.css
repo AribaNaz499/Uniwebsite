@@ -1,0 +1,35 @@
+/* ==========================================================================
+   CAMPUS LIFE SECTION - ULTRA WIDE RESOLUTIONS ONLY (1920px & 2560px+)
+   Standard Desktop (1024px to 1500px) remains completely untouched!
+   ========================================================================== */
+
+/* --- 1920px Width Screens --- */
+@media screen and (min-width: 1920px) {
+  .custom-campus-container-wide {
+    max-width: 1400px !important; 
+    width: 100% !important;
+    margin: 0 auto !important; /* Horizontally perfectly center align karega */
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  /* Grid card spacing ko wider screens ke hisab se set kiya */
+  .custom-campus-grid-wide {
+    grid-gap: 40px !important; 
+  }
+}
+
+/* --- 2560px Ultra-Wide Screens (Matches your 2560x2114px view) --- */
+@media screen and (min-width: 2400px) {
+  .custom-campus-container-wide {
+    max-width: 1750px !important; 
+    width: 100% !important;
+    margin: 0 auto !important; /* 2560px screen ke middle me lock rakhega */
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+
+  .custom-campus-grid-wide {
+    grid-gap: 50px !important; 
+  }
+}

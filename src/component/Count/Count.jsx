@@ -11,6 +11,9 @@ import {
 // Image ke design se match karne wale icons
 import { HiOutlineAcademicCap, HiOutlineUserGroup, HiOutlineLibrary, HiOutlineLocationMarker } from "react-icons/hi";
 
+// Import custom CSS for wide screen handling
+import "../../CSS/count.css";
+
 const Count = () => {
     return (
         <Box
@@ -21,7 +24,14 @@ const Count = () => {
             position="relative"
         >
             <Box bg="rgba(11, 20, 39, 0.9)" py={{ base: 10, md: 14 }}>
-                <Container maxW="container.xl">
+                {/* Container maxW behaves standard on standard desktops.
+                  Under 1920px and 2560px+ screens, custom-count-container-wide 
+                  will align columns seamlessly with Latest News.
+                */}
+                <Container 
+                    maxW="container.xl" 
+                    className="custom-count-container-wide"
+                >
                     <Grid
                         templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }}
                         gap={{ base: 8, md: 0 }}

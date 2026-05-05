@@ -1,0 +1,22 @@
+/* ==========================================================================
+   COUNT/STATS SECTION - ULTRA WIDE RESOLUTIONS ONLY (1920px & 2560px+)
+   Standard Desktop (under 1920px) remains 100% untouched!
+   ========================================================================== */
+
+/* --- 1920px Width Screens --- */
+@media screen and (min-width: 1920px) {
+  .custom-count-container-wide {
+    max-width: 1400px !important; 
+    width: 100% !important;
+    margin: 0 auto !important; /* Locks layout alignment in center */
+  }
+}
+
+/* --- 2560px Ultra-Wide Screens --- */
+@media screen and (min-width: 2400px) {
+  .custom-count-container-wide {
+    max-width: 1750px !important; 
+    width: 100% !important;
+    margin: 0 auto !important; /* Perfect align with wide sections */
+  }
+}

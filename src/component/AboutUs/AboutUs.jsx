@@ -18,7 +18,7 @@ import { BsArrowRight } from "react-icons/bs";
 // Images Paths
 import PersonImg from "../../assets/Images/AboutUs/person.jpg";
 import GraduationImg from "../../assets/Images/AboutUs/graduation.jpg";
-import FieldImg from "../../assets/Images/AboutUs/field.jpg";
+import FieldImg from "../../assets/Images/AboutUs/field.jpeg";
 import DottedPatternImg from "../../assets/Images/AboutUs/dotted-pattern.jpg";
 
 const AboutUs = () => {

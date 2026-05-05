@@ -1,0 +1,23 @@
+
+@media screen and (min-width: 1920px) {
+  .chakra-container.custom-high-res-container,
+  .custom-high-res-container {
+    max-width: 120% !important; 
+    width: 100% !important;
+    padding-left: -220px !important;
+    padding-right: 90px !important;
+    margin-left: -15% !important;
+    margin-right: 50% !important;
+  }
+
+  .custom-high-res-grid {
+    grid-gap: 400px !important; 
+  }
+
+  
+  .custom-high-res-grid > div {
+    min-height: 390px !important; 
+    padding: 48px 32px !important; 
+    min-width: 370px !important;
+  }
+}

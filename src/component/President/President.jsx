@@ -6,6 +6,9 @@ import { BsArrowRight } from "react-icons/bs";
 import Card from "../../assets/Images/President/card.jpg";
 import Admission from "../../component/Admission/Admission"
 
+// Connecting the wide-screen CSS
+import "../../CSS/president.css";
+
 const President = () => {
     const skills = [
         { label: "Faculty Skilled", value: 95 },
@@ -14,15 +17,33 @@ const President = () => {
     ];
 
     return (
-        <Box width="100%" bg="white">
+        <Box width="100%" bg="white" overflow="hidden">
             <Box py={{ base: 10, md: 24 }}>
-                <Container maxW="1250px" px={{ base: 6, md: 12, lg: 20 }}>
+                {/* UNTOUCHED CONTAINER: 
+                    Aapka original maxW="1250px" bilkul locked hai.
+                    Standard devices par margins aur sizes 100% safe hain.
+                */}
+                <Container 
+                    maxW="1250px" 
+                    px={{ base: 6, md: 12, lg: 20 }}
+                    className="custom-president-container-wide"
+                >
                     <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 12, lg: 16 }} alignItems="center">
                         {/* Left Side: Image with Background Box */}
+                        {/* FIXED FOR ULTRA-WIDE (2556px) ONLY:
+                            1. Normal screen sizes ke liye base="350px" aur md="480px" untouched locked hain.
+                            2. Media query lagakar ultra-wide (2000px+) par main box ki height ko 680px kiya hai.
+                            3. Image wrapper box ki height ko 90% se force karke 100% kiya hai taaki picture bottom ya top se thodi si bhi cut na ho.
+                        */}
                         <Box
                             position="relative"
                             width="100%"
                             height={{ base: "350px", md: "480px" }} 
+                            sx={{
+                                "@media screen and (min-width: 2000px)": {
+                                    height: "680px"
+                                }
+                            }}
                         >
                             <Box
                                 position="absolute"
@@ -32,6 +53,11 @@ const President = () => {
                                 height="90%" 
                                 bg="#f4f7f9" 
                                 zIndex="1"
+                                sx={{
+                                    "@media screen and (min-width: 2000px)": {
+                                        height: "100%"
+                                    }
+                                }}
                             />
                             <Box
                                 position="absolute"
@@ -40,6 +66,12 @@ const President = () => {
                                 width="50%" 
                                 height="90%"
                                 zIndex="2"
+                                sx={{
+                                    "@media screen and (min-width: 2000px)": {
+                                        height: "100%",
+                                        width: "52%" // Grid stretch ke hisab se perfect width proportion
+                                    }
+                                }}
                             >
                                 <Image
                                     src={Card}
