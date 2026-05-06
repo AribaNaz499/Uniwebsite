@@ -44,10 +44,7 @@ const programsData = [
 const CampusLife = () => {
   return (
     <Box width="100%" py={{ base: 12, md: 24 }} bg="white" overflow="hidden">
-      {/* UNTOUCHED CONTAINER: 
-          Aapka original maxW="1050px" locked hai. 
-          Standard desktop aur baqi layouts ke liye yeh 100% safe hai.
-      */}
+    
       <Container 
         maxW="1050px" 
         px={{ base: 4, md: 8 }}

@@ -5,7 +5,7 @@ import {
   HStack,
   Text,
   Image,
-  Link,
+  Link, // Chakra Link
   Button,
   IconButton,
   VStack,
@@ -18,6 +18,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
 } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom'; // React Router Link import kiya
 import { SearchIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { BsGrid3X3GapFill } from 'react-icons/bs';
 import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
@@ -29,7 +30,6 @@ const Navbar = () => {
   const topLinks = ["Students", "Staff", "Alumni", "Faculty", "Community"];
 
   return (
-    // Outer Wrapper: Width ko stretch rakh kar extra elements ka overflow block kiya hai
     <Box width="100%" maxW="100vw" overflowX="hidden" fontFamily="sans-serif">
       
       {/* --- TOP HEADER NAVBAR --- */}
@@ -58,13 +58,7 @@ const Navbar = () => {
       </Box>
 
       {/* --- MAIN NAVBAR --- */}
-      {/* Background container: Full width background setting */}
       <Box bg="white" boxShadow="md" width="100%" position="relative">
-        
-        {/* BACKGROUND BLUE PANEL (Ultra-wide scale protection)
-            Yeh block back-end par left screen-edge se shuru ho kar content area ke start tak solid blue background hold rakhta hai,
-            jiski wajah se ultra-wide screens par logo ke piche ka background kabhi khali nahi dikhta.
-        */}
         <Box 
           position="absolute"
           left={0}
@@ -76,7 +70,6 @@ const Navbar = () => {
           display={{ base: "none", md: "block" }}
         />
 
-        {/* INNER CONTENT GRID: Content ko 1400px maximum limits ke andar center rakhta hai */}
         <Box maxW="1400px" mx="auto" width="100%" position="relative" zIndex={2}>
           <Flex
             color="#333"
@@ -85,8 +78,10 @@ const Navbar = () => {
             height={{ base: "80px", md: "100px" }}
             width="100%"
           >
-            {/* LOGO SECTION */}
+            {/* LOGO SECTION - Logo click par home page par le kar jaye */}
             <Flex
+              as={RouterLink}
+              to="/"
               bg="#1a4d95"
               color="white"
               height="100%"
@@ -106,16 +101,8 @@ const Navbar = () => {
               }}
               flexShrink={0}
             >
-              <HStack
-                spacing={{ base: 1, md: 2 }} 
-                pl={{ base: 2, md: 3 }}      
-                py={1}                     
-              >
-                <Box
-                  borderRadius="full"
-                  p={0}                     
-                  flexShrink={0}          
-                >
+              <HStack spacing={{ base: 1, md: 2 }} pl={{ base: 2, md: 3 }} py={1}>
+                <Box borderRadius="full" p={0} flexShrink={0}>
                   <Image
                     src={UniLogo}
                     alt="MWU Logo"
@@ -127,7 +114,7 @@ const Navbar = () => {
               </HStack>
             </Flex>
 
-            {/* DESKTOP MENU */}
+            {/* DESKTOP MENU - Link as RouterLink apply kiya gaya hai */}
             <HStack 
               display={{ base: "none", lg: "flex" }} 
               spacing={8} 
@@ -136,12 +123,12 @@ const Navbar = () => {
               fontWeight="500" 
               fontSize={"15px"}
             >
-              <Link _hover={{ color: "#1a4d95" }}>Home</Link>
-              <Link _hover={{ color: "#1a4d95" }}>About Us</Link>
+              <Link as={RouterLink} to="/" _hover={{ color: "#1a4d95" }}>Home</Link>
+              <Link as={RouterLink} to="/about" _hover={{ color: "#1a4d95" }}>About Us</Link>
               <Link _hover={{ color: "#1a4d95" }}>Programs +</Link>
               <Link _hover={{ color: "#1a4d95" }}>Events +</Link>
               <Link _hover={{ color: "#1a4d95" }}>Blogs +</Link>
-              <Link _hover={{ color: "#1a4d95" }}>Contact Us</Link>
+              <Link as={RouterLink} to="/contact" _hover={{ color: "#1a4d95" }}>Contact Us</Link>
 
               <HStack spacing={4} ml={4}>
                 <IconButton variant="outline" icon={<SearchIcon />} aria-label="Search" borderRadius="none" />
@@ -180,12 +167,13 @@ const Navbar = () => {
 
           <DrawerBody>
             <VStack align="start" spacing={5} mt={4}>
-              <Link onClick={onClose}>Home</Link>
-              <Link onClick={onClose}>About Us</Link>
+              {/* Mobile Drawer links updated with RouterLink */}
+              <Link as={RouterLink} to="/" onClick={onClose}>Home</Link>
+              <Link as={RouterLink} to="/about" onClick={onClose}>About Us</Link>
               <Link onClick={onClose}>Programs</Link>
               <Link onClick={onClose}>Events</Link>
               <Link onClick={onClose}>Blogs</Link>
-              <Link onClick={onClose}>Contact Us</Link>
+              <Link as={RouterLink} to="/contact" onClick={onClose}>Contact Us</Link>
 
               <Divider borderColor="whiteAlpha.300" />
 

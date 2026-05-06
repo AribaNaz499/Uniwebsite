@@ -19,22 +19,14 @@ const President = () => {
     return (
         <Box width="100%" bg="white" overflow="hidden">
             <Box py={{ base: 10, md: 24 }}>
-                {/* UNTOUCHED CONTAINER: 
-                    Aapka original maxW="1250px" bilkul locked hai.
-                    Standard devices par margins aur sizes 100% safe hain.
-                */}
+               
                 <Container 
                     maxW="1250px" 
                     px={{ base: 6, md: 12, lg: 20 }}
                     className="custom-president-container-wide"
                 >
                     <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 12, lg: 16 }} alignItems="center">
-                        {/* Left Side: Image with Background Box */}
-                        {/* FIXED FOR ULTRA-WIDE (2556px) ONLY:
-                            1. Normal screen sizes ke liye base="350px" aur md="480px" untouched locked hain.
-                            2. Media query lagakar ultra-wide (2000px+) par main box ki height ko 680px kiya hai.
-                            3. Image wrapper box ki height ko 90% se force karke 100% kiya hai taaki picture bottom ya top se thodi si bhi cut na ho.
-                        */}
+                      
                         <Box
                             position="relative"
                             width="100%"
