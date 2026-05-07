@@ -17,7 +17,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { HiOutlineChat, HiXCircle } from "react-icons/hi";
 
 // Correct path to the newly created Latest News CSS
-import "../../CSS/latestNews.css";
+import "../../CSS/latestnews.css";
 
 // Image paths
 import CropImg from "../../assets/Images/LatestNews/card1.jpg";
