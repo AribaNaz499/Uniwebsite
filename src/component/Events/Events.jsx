@@ -54,10 +54,7 @@ const eventsData = [
 const Events = () => {
     return (
         <Box width="100%" py={{ base: 10, md: 20 }} bg="white" overflow="hidden">
-            {/* UNTOUCHED CONTAINER: 
-                Aapka original maxW="1100px" bilkul lock hai. 
-                Standard desktop aur baqi layouts ke liye yeh 100% safe hai.
-            */}
+            
             <Container 
                 maxW="1100px"
                 className="custom-events-container-wide"

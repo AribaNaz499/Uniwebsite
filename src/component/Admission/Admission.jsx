@@ -16,7 +16,7 @@ const AdmissionSection = () => {
             <Box width="100%" borderBottom="1px solid" borderColor="gray.100" py={{ base: 4, md: 3 }}>
                 {/* Standard desktop maxW 1500px is strictly preserved */}
                 <Container maxW="1500px" className="custom-admission-top-wide">
-                    <SimpleGrid 
+                    {/* <SimpleGrid 
                         columns={{ base: 1, md: 3 }} 
                         spacing={{ base: 4, md: 10 }}
                         justifyItems={{ base: "flex-start", md: "center" }}
@@ -35,7 +35,38 @@ const AdmissionSection = () => {
                                 </Text>
                             </HStack>
                         ))}
-                    </SimpleGrid>
+                    </SimpleGrid> */}
+                    <Box
+  as="marquee"
+  scrollamount="6" // Speed adjust karne ke liye (kam/zyada kar sakte hain)
+  direction="left" // Left ki taraf chalega
+  style={{ width: "100%", display: "block" }}
+>
+  <HStack 
+    spacing={{ base: 12, md: 24 }} // Items ke darmiyan spacing barha di taake chalte hue pyare lagein
+    display="inline-flex" 
+    py={4}
+  >
+    {["HEALTH SCIENCE", "TOURISM & HERITAGE", "BIODIVERSITY"].map((item) => (
+      <HStack key={item} spacing={3}>
+        <Icon 
+          as={LuBookOpen} 
+          color="#1a4d95" 
+          boxSize={{ base: "18px", lg: "26px" }} 
+        />
+        <Text
+          fontWeight="700"
+          fontSize={{ base: "20px", md: "22px", lg: "26px" }}
+          color="#001529"
+          letterSpacing="1px"
+          whiteSpace="nowrap" // Isko nowrap kiya taake text beech me se toot ke niche line par na jaye
+        >
+          {item}
+        </Text>
+      </HStack>
+    ))}
+  </HStack>
+</Box>
                 </Container>
             </Box>
 

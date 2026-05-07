@@ -123,10 +123,7 @@ const Academics = () => {
               boxShadow="0 2px 15px rgba(0,0,0,0.03)"
               transition="all 0.3s"
             >
-              {/* FIXED IMAGE CONTAINER:
-                Normal screens, tablets aur mobile par height hamesha exactly "190px" hi rahegi jaisa aapka original design tha.
-                Sirf ultra-wide / 2556px screens par hum height ko responsive banayenge "240px" ya "260px" taaki images upar se cut na hon.
-              */}
+              
               <Box 
                 position="relative" 
                 width="100%" 

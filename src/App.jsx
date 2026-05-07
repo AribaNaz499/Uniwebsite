@@ -16,7 +16,10 @@ import Faq from "./component/FAQ/Faq"
 // Pages Imports
 import AboutUsPage from './component/AboutUs/AboutUsPage'
 import ContactUs from './component/ContactUs/ContactUs'
-
+import EventPage from './component/Events/EventsPage'
+import BlogPage from "./component/Blog/BlogPage"
+import BlogDetailPage from "./component/Blog/BlogDetailPage"
+import EventsDetailPage from "./component/Events/EventsDetailPage"
 import './App.css'
 
 function Home() {
@@ -46,6 +49,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/events" element={<EventPage/>}/>
+        <Route path = "/event-detail" element={<EventsDetailPage/>}/>
+        <Route path="/blogs" element={<BlogPage/>}/>
+        <Route path='/blog-detail' element={<BlogDetailPage/>}/>
       </Routes>
 
       <Footer />
